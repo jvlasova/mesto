@@ -1,0 +1,16 @@
+.profile__info {
+  max-width: 336px;
+  display: grid;
+  grid-template-columns: minmax(294px, 1fr) minmax(24px, 1fr);
+  position: absolute;
+  left: 150px;
+}
+
+@media screen and (max-width: 767px) {
+  .profile__info {
+    max-width: 220px;
+    position: relative;
+    grid-template-columns: minmax(189px, 1fr) minmax(15px, 1fr);
+    left: 46px;
+  }
+}

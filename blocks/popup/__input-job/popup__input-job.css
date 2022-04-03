@@ -1,0 +1,18 @@
+.popup__input-job {
+  max-width: 358px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.2;
+  color: rgba(0, 0, 0, 1);
+  padding-bottom: 9px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+  
+@media screen and (max-width: 767px) {
+  .popup__input-job {
+    max-width: 238px;
+  }
+}
