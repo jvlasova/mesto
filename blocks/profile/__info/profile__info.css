@@ -10,7 +10,7 @@
   .profile__info {
     max-width: 220px;
     position: relative;
-    grid-template-columns: minmax(189px, 1fr) minmax(15px, 1fr);
+    grid-template-columns: minmax(189px, 1fr) minmax(18px, 1fr);
     left: 46px;
   }
 }
