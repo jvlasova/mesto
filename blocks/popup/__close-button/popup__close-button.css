@@ -4,16 +4,17 @@
   position: relative;
   top: -40px;
   right: -438px;
-  background-image: url('../../../images/close-button.png');
-  background-color: rgba(0, 0, 0, 1);
+  background: none;
   border: none;
-  background-position: center center;
+  background-image: url('../../../images/close-button.svg');
+  border: none;
+  background-position: center;
   background-repeat: no-repeat;
 }
 
 .popup__close-button:hover {
   cursor: pointer;
-  opacity: .5;
+  opacity: .6;
 }
 
 @media screen and (max-width: 767px) {
