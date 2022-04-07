@@ -1,5 +1,4 @@
 .elements {
-  font-family: Inter, Arial, sans-serif;
   max-width: 880px;
   margin: 52px auto 0;
   display: grid;
@@ -17,7 +16,7 @@
 @media screen and (max-width: 767px) {
   .elements {
     max-width: 282px;
-    margin: 35px auto 0;
+    margin: 37px auto 0;
     grid-template-columns: repeat(1, 1fr);  
   }
 }

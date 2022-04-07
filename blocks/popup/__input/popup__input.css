@@ -3,8 +3,24 @@
   margin: 0 auto 29px;
   border-style: none;
   border-bottom: rgba(0, 0, 0, 0.2) solid 1px;
+  max-width: 358px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.2;
+  color: rgba(0, 0, 0, 1);
+  padding-bottom: 9px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .popup__input:last-of-type {
   margin-bottom: 0;
+}
+
+@media screen and (max-width: 767px) {
+  .popup__input {
+    max-width: 238px;
+  }
 }

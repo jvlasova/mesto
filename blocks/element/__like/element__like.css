@@ -1,10 +1,13 @@
 .element__like {
   min-width: 22px;
+  min-height: 19px;
   background-image: url('../../../images/heart.svg');
   background-color: rgba(255, 255, 255, 1);
   border: none;
   background-repeat: no-repeat;
   background-position: center;
+  object-fit: cover;
+  transition: opacity .4s ease-in-out;
 }
 
 .element__like:hover {
