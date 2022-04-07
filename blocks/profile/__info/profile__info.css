@@ -9,4 +9,5 @@
     max-width: 220px;
     grid-template-columns: minmax(189px, 1fr) minmax(18px, 1fr);
     margin: 0 0 0 46px;
+  }
 }
