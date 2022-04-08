@@ -11,11 +11,10 @@
   cursor: pointer;
   opacity: .6;
 }
-  
-@media screen and (max-width: 767px) {
+
+@media screen and (max-width: 619px) {
   .profile__add-button {
     min-width: 282px;
-    min-height: 50px;
-    margin: 32px auto 0;
+    margin: 33px auto 0;
   }
 }

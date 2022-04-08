@@ -9,13 +9,23 @@
 
 @media screen and (max-width: 1023px) {
   .profile {
-    max-width: 720px;
+    max-width: 730px;
+    grid-template-columns: 120px minmax(336px, 1fr) 150px;
   }
 }
 
 @media screen and (max-width: 767px) {
   .profile {
+    max-width: 730px;
+    grid-template-columns: 120px minmax(189px, 1fr) 150px;
+    margin: 0 19px;
+  }
+}
+
+@media screen and (max-width: 619px) {
+  .profile {
     max-width: 282px;
     display: block;
+    margin: 0 auto;
   }
 }

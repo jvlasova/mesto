@@ -5,7 +5,7 @@
   background-position: center center;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 619px) {
   .profile__add-button-pluse {
     max-width: 16px;
     max-height: 16px;

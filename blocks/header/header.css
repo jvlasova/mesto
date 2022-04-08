@@ -1,7 +1,7 @@
 .header {
   font-family: Inter, Arial, sans-serif;
   max-width: 880px;
-  margin: 44px auto 40px;
+  margin: 45px auto 40px;
   border-bottom: rgba(84, 84, 84, .7) solid 1px;
 }
 
@@ -13,6 +13,6 @@
 
 @media screen and (max-width: 767px) {
   .header {
-    margin: 28px auto 41px;
+    margin: 28px auto 42px;
   }
 }
