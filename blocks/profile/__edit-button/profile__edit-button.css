@@ -6,7 +6,7 @@
   background-color: rgba(0, 0, 0, 1);
   border: 1px solid rgba(255, 255, 255, 1);
   background-repeat: no-repeat;
-  background-position: center center;
+  background-position: center;
   object-fit: cover;
   transition: opacity .4s ease-in-out;
 }

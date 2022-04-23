@@ -31,16 +31,6 @@ const closeByEscape = (evt) => {
   }
 }
 
-function closeOverlayClick(evt) {
-  if (evt.target === evt.currentTarget) {
-      closePopup(evt.target);
-  }
-}
-
-popups.forEach(function (popup) {
-  popup.addEventListener('click', closeOverlayClick);
-})
-
 function openPopup(popup) {
   popup.classList.add('popup_opened');
   document.addEventListener('keyup', closeByEscape);
@@ -50,6 +40,16 @@ function closePopup(element) {
   element.classList.remove('popup_opened');
   document.removeEventListener('keyup', closeByEscape);
 }
+
+function closeOverlayClick(evt) {
+  if (evt.target === evt.currentTarget) {
+      closePopup(evt.target);
+  }
+}
+
+popups.forEach(function (popup) {
+  popup.addEventListener('click', closeOverlayClick);
+})
 
 // Добавление карточек JS
 function createCard(cardName, cardLink) {
@@ -86,7 +86,7 @@ function renderInitialCards(initialCards) {
 // Добавление карточек через форму
 function handleAddCardFormSubmit (evt) {
   evt.preventDefault();
-  
+
   cards.prepend(createCard(titleInput.value, linkInput.value));
 
   formAddElement.reset();
