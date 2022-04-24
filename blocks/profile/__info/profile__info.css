@@ -2,6 +2,8 @@
   max-width: 336px;
   display: grid;
   grid-template-columns: minmax(294px, 1fr) 24px;
+  
+  align-items: center;
 }
 
 @media screen and (max-width: 1023px) {
@@ -22,7 +24,7 @@
   .profile__info {
     max-width: 220px;
     grid-template-columns: minmax(189px, 1fr) 18px;
-    column-gap: 10px;
+    
     margin: 0 0 0 46px;
   }
 }
