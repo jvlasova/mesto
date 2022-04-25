@@ -36,8 +36,8 @@ function openPopup(popup) {
   document.addEventListener('keyup', closeByEscape);
 }
 
-function closePopup(element) {
-  element.classList.remove('popup_opened');
+function closePopup(popup) {
+  popup.classList.remove('popup_opened');
   document.removeEventListener('keyup', closeByEscape);
 }
 
@@ -111,7 +111,7 @@ function handleProfileFormSubmit (evt) {
 
   nameText.textContent = nameInput.value;
   jobText.textContent = jobInput.value;
-
+  
   formEditElement.reset();
   closePopup(popupEditProfile);
 }
