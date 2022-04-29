@@ -109,6 +109,7 @@ buttonAdd.addEventListener('click', function  () {
 
 // Попап редактирования профиля
 buttonEdit.addEventListener('click', function  () {
+  formEditElement.reset();
   openPopup(popupEditProfile);
   nameInput.value = nameText.textContent;
   jobInput.value = jobText.textContent;
@@ -120,6 +121,7 @@ function handleProfileFormSubmit (evt) {
   nameText.textContent = nameInput.value;
   jobText.textContent = jobInput.value;
   
+  disableButtonElement(evt.currentTarget.querySelector('.popup__save-button'), validationParams);
   formEditElement.reset();
   closePopup(popupEditProfile);
 }
