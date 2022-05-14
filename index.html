@@ -29,7 +29,8 @@
     <footer class="footer">
       <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
     </footer>
-    <div class="popup popup_edit-profile">
+  </div>
+  <div class="popup popup_edit-profile">
       <div class="popup__container">
         <button type="button" aria-label="Закрыть" class="popup__close-button"></button>
         <form name="profile" class="popup__form" novalidate>
@@ -41,8 +42,8 @@
           <button type="submit" aria-label="Сохранить" class="popup__save-button">Сохранить</button>
         </form>
       </div>
-    </div>
-    <div class="popup popup_add-card">
+  </div>
+  <div class="popup popup_add-card">
       <div class="popup__container">
         <button type="button" aria-label="Закрыть" class="popup__close-button"></button>
         <form name="addcard" class="popup__form" novalidate>
@@ -54,15 +55,15 @@
           <button type="submit" aria-label="Создать" class="popup__save-button">Создать</button>
         </form>
       </div>
-    </div>
-    <div class="popup popup_full">
+  </div>
+  <div class="popup popup_full">
       <div class="popup__container-image">
         <button type="button" aria-label="Закрыть" class="popup__close-button"></button>
         <img src="#" alt="Увеличенное изображение" class="popup__image-full">
         <p class="popup__image-title"></p>
       </div>
-    </div>
-    <template id="card">
+  </div>
+  <template id="card">
       <article class="element">
         <img src="Тест" alt="Изображение места" class="element__image">
         <div class="element__container">
@@ -71,9 +72,7 @@
         </div>
         <button type="button" class="element__trash"></button>
       </article>
-    </template>
-  </div>
-  <script src="./scripts/index.js"></script>
-  <script src="./scripts/FormValidator.js"></script>
+  </template>
+  <script type="module" src="./scripts/index.js"></script>
 </body>
 </html>
