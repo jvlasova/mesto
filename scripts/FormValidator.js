@@ -67,10 +67,17 @@ export class FormValidator {
     });
   }
 
+  resetValidation() {
+    this.toggleButtonState();
+    this._inputList.forEach((inputElement) => {
+      this._hideInputError(inputElement)
+    });
+  } 
+
   enableValidation = () => {
     this._form.addEventListener('submit', (evt) => {
       evt.preventDefault();
-  });
+    });
     this._setEventListeners();
   }
 };

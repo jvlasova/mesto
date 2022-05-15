@@ -1,10 +1,11 @@
-import { handleImageFullClick } from './index.js';
+import { handleCardClick } from './index.js';
 
 export class Card {
-  constructor(data, cardSelector) {
+  constructor(data, cardSelector, /*handleCardClick*/) {
     this._name = data.name;
     this._link = data.link;
     this._cardSelector = cardSelector;
+    //this._handleCardClick = handleCardClick;
   }
 
   _getTemplate() {
@@ -21,6 +22,7 @@ export class Card {
     this._element = this._getTemplate();
     this._cardElementImage = this._element.querySelector('.element__image');
     this._cardElementTitle = this._element.querySelector('.element__title');
+    this._buttonLike = this._element.querySelector('.element__like');
     this._cardElementImage.src = this._link;
     this._cardElementImage.alt = this._name;
     this._cardElementTitle.textContent = this._name;
@@ -30,7 +32,7 @@ export class Card {
   }
 
   _setEventListeners = () => {
-    this._element.querySelector('.element__like').addEventListener('click', () => {
+    this._buttonLike.addEventListener('click', () => {
       this._handleLikeClick();
     });
 
@@ -39,15 +41,16 @@ export class Card {
     });
     
     this._cardElementImage.addEventListener('click', () => {
-      handleImageFullClick(this._name, this._link);
+      handleCardClick(this._name, this._link);
     });
   }
 
   _handleLikeClick() {
-    this._element.querySelector('.element__like').classList.toggle('element__like_active');
+    this._buttonLike.classList.toggle('element__like_active');
   }
   
   _handleTrashClick() {
     this._element.remove();
+    this._element = null;
   }
 };

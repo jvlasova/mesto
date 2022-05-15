@@ -70,9 +70,8 @@ const closeByEscape = (evt) => {
   }
 }
 
-export function openPopup(popup) {
+function openPopup(popup) {
   popup.classList.add('popup_opened');
-  editProfileValidate.toggleButtonState();
   document.addEventListener('keyup', closeByEscape);
 }
 
@@ -94,61 +93,67 @@ popups.forEach(function (popup) {
 function createCard (data) {
   const newCard = new Card(data, '#card');
   const addCard = newCard.generateCard();
-  card.append(addCard);
   
   return addCard;
 }
 
 initialCards.forEach((data) => {
-  createCard(data);
-});
+  card.append(createCard(data));
+})
 
 const formAddCard = (evt) => {
   evt.preventDefault();
 
-  const addCard = createCard({
+  addFromForm({
     name: titleInput.value,
     link: linkInput.value,
   });
-  card.prepend(addCard);
 
   closePopup(popupAddCard);
 }
+
+const addFromForm = (data) => {
+  card.prepend(createCard(data));
+}
+
+initialCards.forEach((data) => {
+  card.append(createCard(data));
+})
 
 formAddElement.addEventListener('submit', formAddCard);
 
 // Попап добавления карточки
 buttonAdd.addEventListener('click', function  () {
   formAddElement.reset();
-  addProfileValidate.toggleButtonState();
+  addProfileValidate.resetValidation();
+
   openPopup(popupAddCard);
+})
+
+// Попап редактирования профиля
+buttonEdit.addEventListener('click', function () {
+  formEditElement.reset();
+  nameInput.value = nameText.textContent;
+  jobInput.value = jobText.textContent;
+
+  editProfileValidate.resetValidation();
+  openPopup(popupEditProfile);
 })
 
 // Pедактированиe профиля
 function handleProfileFormSubmit (evt) {
   evt.preventDefault();
-
+  
   nameText.textContent = nameInput.value;
   jobText.textContent = jobInput.value;
-
-  //disableButtonElement(evt.currentTarget.querySelector('.popup__save-button'), validationParams);
+  
   closePopup(popupEditProfile);
 }
 
 formEditElement.addEventListener('submit', handleProfileFormSubmit);
 
-// Попап редактирования профиля
-buttonEdit.addEventListener('click', function () {
-  formEditElement.reset();
-  openPopup(popupEditProfile);
-  editProfileValidate.toggleButtonState();
-
-  nameInput.value = nameText.textContent;
-  jobInput.value = jobText.textContent;
-})
-
 // Попап увеличения изображения
-export function handleImageFullClick(name, link) {
+export function handleCardClick(name, link) {
   imageFull.src = link;
   imageFull.alt = name;
   imageFullTitle.textContent = name;

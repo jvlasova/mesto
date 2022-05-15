@@ -1,7 +1,7 @@
 .popup__save-button {
   min-width: 358px;
   min-height: 50px;
-  margin: 48px auto 0;
+  margin: 29px auto 0;
   background-color: rgba(0, 0, 0, 1);
   border: none;
   border-radius: 2px;
@@ -23,6 +23,6 @@
     min-width: 238px;
     min-height: 46px;
     font-size: 14px;
-    margin-top: 44px;
+    margin-top: 25px;
   }
 }
