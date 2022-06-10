@@ -40,15 +40,17 @@ const createCard = new Section({
 }, '.elements');
 createCard.renderItems();
 
-const createUserInfo = new UserInfo(popupProfileValues);
+const popupWithFormAdd = new PopupWithForm(
+  {
+    callbackSubmitForm: (data) => {
+      const cardFromPopup = createNewCard(data);
+      createCard.addItem(cardFromPopup);
+      popupWithFormAdd.close();
+    }
+  }, '.popup_add-card');
+popupWithFormAdd.setEventListeners();
 
-function editFormProfile() {
-  const profileValues = createUserInfo.getUserInfo();
-  nameInput.value = profileValues.nameValueSelector;
-  jobInput.value = profileValues.jobValueSelector;
-  editProfileValidate.resetValidation();
-  popupWithFormEdit.open();
-}
+const createUserInfo = new UserInfo(popupProfileValues);
 
 const popupWithFormEdit = new PopupWithForm(
   {
@@ -59,15 +61,13 @@ const popupWithFormEdit = new PopupWithForm(
   }, '.popup_edit-profile');
 popupWithFormEdit.setEventListeners();
 
-const popupWithFormAdd = new PopupWithForm(
-  {
-    callbackSubmitForm: (data) => {
-      const cardFromPopup = createNewCard(data);
-      createCard.addItem(cardFromPopup);
-      popupWithFormAdd.close();
-    }
-  }, '.popup_add-card');
-popupWithFormAdd.setEventListeners();
+function editFormProfile() {
+  const profileValues = createUserInfo.getUserInfo();
+  nameInput.value = profileValues.nameValueSelector;
+  jobInput.value = profileValues.jobValueSelector;
+  editProfileValidate.resetValidation();
+  popupWithFormEdit.open();
+}
 
 buttonEdit.addEventListener('click', () => {
   editFormProfile();
