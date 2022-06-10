@@ -1,3 +1,4 @@
+export const popupEditProfile = document.querySelector('.popup_edit-profile');
 export const buttonEdit = document.querySelector('.profile__edit-button');
 export const buttonEditClose = popupEditProfile.querySelector('.popup__close-button');
 export const formEditElement = document.querySelector('.popup__form');
@@ -8,6 +9,7 @@ export const popupProfileValues = {
   jobValueSelector: '.profile__info-subtitle',
 };
 
+export const popupAddCard = document.querySelector('.popup_add-card');
 export const buttonAdd = document.querySelector('.profile__add-button');
 export const buttonAddClose = popupAddCard.querySelector('.popup__close-button');
 
@@ -16,9 +18,12 @@ export const linkInput = popupAddCard.querySelector('.popup__input_type_link');
 
 export const formAddElement = popupAddCard.querySelector('.popup__form');
 
+export const popupImageFull = document.querySelector('.popup_full');
 export const fullImageClose = popupImageFull.querySelector('.popup__close-button');
 export const imageFull = popupImageFull.querySelector('.popup__image-full');
 export const imageFullTitle = popupImageFull.querySelector('.popup__image-title');
+
+export const popups = document.querySelectorAll('.popup');
 
 export const initialCards = [
   {
@@ -46,6 +51,8 @@ export const initialCards = [
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
   }
 ];
+export const cardTemplate = document.querySelector('#card').content;
+export const card = document.querySelector('.elements');
 
 export const validationParams = ({
   formSelector: '.popup__form',
