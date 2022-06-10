@@ -1,6 +1,7 @@
 .profile__add-button-pluse {
   max-width: 22px;
   max-height: 22px;
+  background-image: url('../../../images/add-button.svg');
   background-repeat: no-repeat;
   background-position: center center;
 }

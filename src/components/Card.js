@@ -1,11 +1,9 @@
-import { handleCardClick } from './index.js';
-
-export class Card {
-  constructor(data, cardSelector, /*handleCardClick*/) {
-    this._name = data.name;
-    this._link = data.link;
+export default class Card {
+  constructor({ data, handleCardClick }, cardSelector) {
     this._cardSelector = cardSelector;
-    //this._handleCardClick = handleCardClick;
+    this._link = data.link;
+    this._name = data.name;
+    this._handleCardClick = handleCardClick;
   }
 
   _getTemplate() {
@@ -23,9 +21,9 @@ export class Card {
     this._cardElementImage = this._element.querySelector('.element__image');
     this._cardElementTitle = this._element.querySelector('.element__title');
     this._buttonLike = this._element.querySelector('.element__like');
-    this._cardElementImage.src = this._link;
     this._cardElementImage.alt = this._name;
     this._cardElementTitle.textContent = this._name;
+    this._cardElementImage.src = this._link;
 
     this._setEventListeners();
     return this._element;
@@ -41,7 +39,7 @@ export class Card {
     });
     
     this._cardElementImage.addEventListener('click', () => {
-      handleCardClick(this._name, this._link);
+      this._handleCardClick(this._name, this._link);
     });
   }
 

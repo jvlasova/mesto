@@ -2,25 +2,24 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="./pages/index.css">
+  <!-- <link rel="stylesheet" href="./pages/index.css"> -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MESTO</title>
 </head>
 <body class="root">
   <div class="page">
     <header class="header">
-      <img class="header__logo" src="./images/logo.svg" alt="Лого">
+      <img class="header__logo" src="<%=require('./images/logo.svg')%>" alt="Лого">
     </header>
     <main>
       <section class="profile" aria-label="Профиль">
-        <img src="./images/kusto.jpg" alt="Фото профиля" class="profile__avatar">
+        <img src="<%=require('./images/kusto.jpg')%>" alt="Фото профиля" class="profile__avatar">
         <div class="profile__info">  
           <h1 class="profile__info-title">Жак-Ив Кусто</h1>
           <button type="button" aria-label="Редактировать" class="profile__edit-button"></button>
           <p class="profile__info-subtitle">Исследователь океана</p>
         </div>
-        <button type="button" aria-label="Добавить" class="profile__add-button">
-          <img src="./images/add-button.svg" alt="Картинка кнопки Добавить" class="profile__add-button-pluse">
+        <button type="button" aria-label="Добавить" class="profile__add-button profile__add-button-pluse">
         </button>
       </section>
       <section class="elements" aria-label="Карточки места России">
@@ -65,7 +64,7 @@
   </div>
   <template id="card">
       <article class="element">
-        <img src="Тест" alt="Изображение места" class="element__image">
+        <img alt="Изображение места" class="element__image">
         <div class="element__container">
           <h2 class="element__title"></h2>
           <button type="button" aria-label="Нравится" class="element__like"></button>
@@ -73,6 +72,6 @@
         <button type="button" class="element__trash"></button>
       </article>
   </template>
-  <script type="module" src="./scripts/index.js"></script>
+  <!-- <script type="module" src="./src/components/index.js"></script> -->
 </body>
 </html>
