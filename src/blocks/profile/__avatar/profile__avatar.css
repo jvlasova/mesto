@@ -1,8 +1,26 @@
 .profile__avatar {
+  display: block;
   width: 120px;
   height: 120px;
-  border-radius: 50%;
+  cursor: pointer;
+}
+
+.profile__avatar::before {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 120px;
+  height: 120px;
   object-fit: cover;
+  border-radius: 50%;
+  transition: opacity .4s ease-in-out;
+}
+
+.profile__avatar:hover::before {
+  background-image: url('../../../images/avatar-button.svg');
+  background-color:  rgba(0, 0, 0, 0.8);
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 @media screen and (max-width: 619px) {
