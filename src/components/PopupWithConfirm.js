@@ -5,20 +5,18 @@ export default class PopupWithConfirm extends Popup {
     super(popupSelector);
     this._callbackSubmitForm = callbackSubmitForm;
    
-    //this._buttonConfirm = this._popup.querySelector('.popup__form');
-    this._buttonConfirm = this._popup.querySelector('.popup__save-button');
+    this._buttonConfirm = this._popup.querySelector('.popup__form');
   }
 
-  open(element, id) {
-    this._element = element;
-    this._element_id = id;
+  open(data) {
+    this._data = data;
     super.open();
   }
 
   setEventListeners() {
     this._buttonConfirm.addEventListener('submit', (evt) => {
       evt.preventDefault();
-      this._callbackSubmitForm(this._element, this._element_id);
+      this._callbackSubmitForm(this._data);
     });
     super.setEventListeners();
   }

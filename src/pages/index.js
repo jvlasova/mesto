@@ -23,6 +23,7 @@ import {
 } from '../utils/constants.js';
 
 let userId = null;
+let deletedCard = null;
 
 const api = new Api({
   baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-42',
@@ -49,17 +50,15 @@ openImageFull.setEventListeners();
 
 const deleteCardPopup = new PopupWithConfirm(
   {
-    callbackSubmitForm: (element, id) => { 
-      api.deleteCard(id)
+    callbackSubmitForm: (data) => {
+      api.deleteCard(data)
       .then(() => {
-        element.removeCard();
+        deletedCard.removeCard();
+        deleteCardPopup.close();
       })
       .catch((error) => {
         console.log(`ERROR: ${error}`);
-    })
-      .finally(() => {
-        deleteCardPopup.close();
-    })
+      })
   }
 }, '.popup_confirm');
 deleteCardPopup.setEventListeners();
@@ -69,8 +68,9 @@ const createNewCard = (data) => {
     handleCardClick: () => {
       openImageFull.open(data.name, data.link);
     },
-    handleDeleteCardClick: (element, id) => {
-      deleteCardPopup.open(element, id);
+    handleDeleteCardClick: () => {
+      deletedCard = card;
+      deleteCardPopup.open(card.cardId());
     },
     handleLikeClick: () => {
       if (card.isLiked()) {
@@ -83,8 +83,8 @@ const createNewCard = (data) => {
         });
       } else {
         api.setLike(card.cardId())
-          .then((data) => {
-            card.likesInfo(data.likes);
+        .then((data) => {
+          card.likesInfo(data.likes);
         })
         .catch(error => {
           console.log(`ERROR: ${error}`)
@@ -111,14 +111,13 @@ const popupWithFormAdd = new PopupWithForm(
         .then((resolve) => {
           const cardFromPopup = createNewCard(resolve);
           createCard.addItem(cardFromPopup);
-          popupWithFormAdd.loading(true, 'Сохранение...');
+          popupWithFormAdd.close();
         })
         .catch((error) => {
           console.log(`ERROR: ${error}`);
         })
         .finally(() => {
           popupWithFormAdd.loading(false, 'Сохранить');
-          popupWithFormAdd.close();
         })
     }
   }, '.popup_add-card');
@@ -131,14 +130,13 @@ const popupWithFormEdit = new PopupWithForm(
       api.editProfile(data)
         .then((resolve) => {
           createUserInfo.setUserInfo(resolve);
-          popupWithFormEdit.loading(true, 'Сохранение...');
+          popupWithFormEdit.close();
         })
         .catch((error) => {
           console.log(`ERROR: ${error}`);
         })
         .finally(() => {
           popupWithFormEdit.loading(false, 'Сохранить');
-          popupWithFormEdit.close();
         })
     }
   }, '.popup_edit-profile');
@@ -151,14 +149,13 @@ const popupWithFormAvatar = new PopupWithForm(
       api.editAvatarProfile(data)
         .then((resolve) => {
           createUserInfo.setUserInfo(resolve);
-          popupWithFormAvatar.loading(true, 'Сохранение...');
+          popupWithFormAvatar.close();
         })
         .catch((error) => {
           console.log(`ERROR: ${error}`);
         })
         .finally(() => {
-          popupWithFormAvatar.loading(false, 'Сохранить')
-          popupWithFormAvatar.close();
+          popupWithFormAvatar.loading(false, 'Сохранить');
         })
     }
   }, '.popup_edit-avatar');
